@@ -1,0 +1,23 @@
+from pathlib import Path
+import urllib.request
+
+BASE_URL = "https://tatoeba.org/pt-br/exports/download/79081/Pares%20de%20frase%20em%20Ingl%C3%AAstraduzidas%20para%20o%20Portugu%C3%AAs-%20-%202026-10-14.tsv"
+
+dir_path = Path("data/raw/tatoeba_data")
+
+def download():
+
+    #verifico a existência dos diretórios corretos
+    if not dir_path.exists():
+        dir_path.mkdir(parents=True)
+
+    #local exato do arquivo
+    path = dir_path / "Pares%20de%20frase%20em%20Ingl%C3%AAstraduzidas%20para%20o%20Portugu%C3%AAs-%20-%202026-10-14.tsv"
+
+    if not path.exists():
+        print("ARQUIVO NÃO ENCONTRADO! BAIXANDO...")
+        urllib.request.urlretrieve(BASE_URL, path)
+        print("ARQUIVO BAIXADO!")
+
+    else:
+        print("ARQUIVO JÁ NO SISTEMA!")

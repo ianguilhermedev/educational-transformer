@@ -1,0 +1,21 @@
+[project]
+name = "transformer-scratch"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "ipykernel>=7.4.0",
+    "optuna>=5.0.0",
+    "pandas>=3.0.6",
+    "tokenizer>=3.7.0",
+    "tokenizers>=0.23.3",
+    "torch>=2.14.1",
+    "torchmetrics>=1.9.0",
+    "tqdm>=4.70.1",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
