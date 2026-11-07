@@ -1,7 +1,8 @@
 from pathlib import Path
 import urllib.request
 
-BASE_URL = "https://tatoeba.org/pt-br/exports/download/79081/Pares%20de%20frase%20em%20Ingl%C3%AAstraduzidas%20para%20o%20Portugu%C3%AAs-%20-%202026-10-14.tsv"
+#buscar url correta posteriormente
+BASE_URL = "https://tatoeba.org/pt-br/exports/download/79291/Pares%20de%20frase%20em%20Ingl%C3%AAstraduzidas%20para%20o%20Portugu%C3%AAs-%20-%202026-10-23.tsv"
 
 dir_path = Path("data/raw/tatoeba_data")
 
@@ -12,7 +13,7 @@ def download():
         dir_path.mkdir(parents=True)
 
     #local exato do arquivo
-    path = dir_path / "Pares%20de%20frase%20em%20Ingl%C3%AAstraduzidas%20para%20o%20Portugu%C3%AAs-%20-%202026-10-14.tsv"
+    path = dir_path / "Pares%20de%20frase%20em%20Ingl%C3%AAstraduzidas%20para%20o%20Portugu%C3%AAs-%20-%202026-10-23.tsv"
 
     if not path.exists():
         print("ARQUIVO NÃO ENCONTRADO! BAIXANDO...")
@@ -21,3 +22,6 @@ def download():
 
     else:
         print("ARQUIVO JÁ NO SISTEMA!")
+
+download()
+
