@@ -99,28 +99,8 @@ def train(
     for epoch in range(epochs):
 
         model.train()
-        train_loss = 0
 
-        '''
-        Recomendação: 
-            - Warmup: LinearLR;
-            - LRScheduler: CosineAnnealingLR.
-
-            ex: 
-             
-            warmup_schedule = torch.optim.lr_scheduler.LinearLR(
-                optimizer,
-                start_factor=0.1,
-                end_factor=1.0,
-                total_iters=3
-            )
-
-            cos_schedule = torch.optim.lr_scheduler.CosineAnnealingLR(
-                optimizer=optimizer, 
-                T_max=20, #lr maximo,
-                eta_min=0.01 #lr mínimo
-            )
-        '''
+        #TODO: corrigir warmup e scheduler
         if warmup_schedule is not None:
             warmup_schedule.step()
 
@@ -144,10 +124,9 @@ def train(
                 logits.reshape(-1, logits.shape[-1]),
                 target.reshape(-1).to(device)
             )
-            train_loss += loss.item()
 
             loss.backward()
-            nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0) #testar no Optuna outros valores de max_norm
+            nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0) 
             optimizer.step()
 
             optimizer.zero_grad()
