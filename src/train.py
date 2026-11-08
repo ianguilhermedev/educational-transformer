@@ -161,11 +161,4 @@ def train(
                 print(f'EARLY STOPPING! Without improve in the last {patience_limit} epochs.')
                 break
 
-'''
-cos_schedule = torch.optim.lr_scheduler.CosineAnnealingLR(
-    optimizer=optimizer,
-    T_max=20, #lr maximo,
-    eta_min=0.01 #lr mínimo
-)
-'''
 

@@ -1,14 +1,13 @@
 import pandas as pd
 from pathlib import Path
 
-def load_data(
-    path=None
-):
-    '''
-    return: se path=None retorna os dados processados
-    '''
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+
+def load_data(path: str | Path | None = None):
 
     if path is None:
-        path = Path("../data/processed/tatoeba_data/en-pt-pairs.tsv")
+        path = PROJECT_ROOT / "data" / "processed" / "en-pt-pairs.tsv"
+    else:
+        path = Path(path)
 
     return pd.read_csv(path, sep="\t")

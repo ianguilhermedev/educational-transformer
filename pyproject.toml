@@ -5,7 +5,9 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
+    "einops>=0.8.2",
     "ipykernel>=7.4.0",
+    "jupyterlab>=4.6.5",
     "optuna>=5.0.0",
     "pandas>=3.0.6",
     "tokenizer>=3.7.0",
